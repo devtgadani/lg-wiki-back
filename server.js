@@ -24,7 +24,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-app.post('https://lg-wiki-coral.vercel.app/api/email', async (req, res) => {
+app.post('/api/email', async (req, res) => {
   try {
     const { email , title } = req.body; // Destructure email from request body
     console.log(`Received email: ${email}`);
