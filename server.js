@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 const cors = require('cors');
 const port = process.env.PORT || 3001;
-app.use(cors({ origin: 'http://localhost:3000' })); 
+app.use(cors({ origin: 'https://lg-wiki-coral.vercel.app' })); 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -24,7 +24,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-app.post('/api/email', async (req, res) => {
+app.post('https://lg-wiki-coral.vercel.app/api/email', async (req, res) => {
   try {
     const { email , title } = req.body; // Destructure email from request body
     console.log(`Received email: ${email}`);
@@ -37,7 +37,7 @@ app.post('/api/email', async (req, res) => {
       // text: `made by : ${email}\n`,
       html: `<h2> new entry add by <b> ${email}<b> </h2>\n<br>
            <h3> TItle : <b> ${title}</b> </h3>'\n'<br><br>
-           <a href="http://localhost:3000/admin" style="padding :20px ;background-color:green; color:white ; border-radius: 25px ; margin:20px;">go and check now </a>
+           <a href="https://lg-wiki-coral.vercel.app/admin" style="padding :20px ;background-color:green; color:white ; border-radius: 25px ; margin:20px;">go and check now </a>
   `
     };
 
